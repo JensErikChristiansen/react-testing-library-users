@@ -1,17 +1,28 @@
+import { useState } from 'react';
+
 export default function UserForm() {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    console.log({ name, email });
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="">Name</label>
-        <input type="text" />
+        <input value={name} onChange={(e) => setName(e.target.value)} />
       </div>
 
       <div>
         <label htmlFor="">Email</label>
-        <input type="text" />
+        <input value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
 
-      <button>Add User</button>
+      <button type="submit">Add User</button>
     </form>
   );
 }
