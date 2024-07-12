@@ -1,13 +1,16 @@
 import { useState } from 'react';
 
-export default function UserForm() {
+export default function UserForm({ onUserAdd }) {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    console.log({ name, email });
+    onUserAdd({
+      name,
+      email,
+    });
   }
 
   return (
