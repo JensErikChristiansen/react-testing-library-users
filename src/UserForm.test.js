@@ -17,10 +17,10 @@ test('calls onUserAdd when the form is submitted', async () => {
 
   render(<UserForm onUserAdd={mock} />);
 
-  const [nameInput, emailInput] = screen.getAllByRole('textbox');
+  const nameInput = screen.getByRole('textbox', { name: /name/i });
   await user.type(nameInput, 'jane');
+  const emailInput = screen.getByRole('textbox', { name: /email/i });
   await user.type(emailInput, 'jane@jane.com');
-
   const button = screen.getByRole('button');
   await user.click(button);
 
