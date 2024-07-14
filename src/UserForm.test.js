@@ -11,3 +11,13 @@ test('shows two inputs and a button', async () => {
   expect(inputs).toHaveLength(2);
   expect(button).toBeInTheDocument();
 });
+
+test('calls onUserAdd when the form is submitted', async () => {
+  // NOT THE BEST IMPLEMENTATION
+  render(<UserForm />);
+
+  const [nameInput, emailInput] = screen.getAllByRole('textbox');
+
+  await user.type(nameInput, 'jane');
+  await user.type(emailInput, 'jane@jane.com');
+});
