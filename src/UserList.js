@@ -8,7 +8,7 @@ export default function UserList({ users }) {
         </tr>
       </thead>
 
-      <tbody>
+      <tbody data-testid="users">
         {users.map((user) => (
           <tr key={user.name}>
             <td>{user.name}</td>
