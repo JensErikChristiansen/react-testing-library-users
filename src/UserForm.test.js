@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import user from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import UserForm from 'UserForm';
 
 test('shows two inputs and a button', async () => {
@@ -13,6 +13,7 @@ test('shows two inputs and a button', async () => {
 });
 
 test('calls onUserAdd when the form is submitted', async () => {
+  const user = userEvent.setup();
   const mock = jest.fn();
 
   render(<UserForm onUserAdd={mock} />);
