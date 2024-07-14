@@ -8,6 +8,10 @@ test('render one row per user', async () => {
   ];
 
   render(<UserList users={users} />);
+
+  const rows = screen.getAllByRole('row');
+
+  expect(rows).toHaveLength(2);
 });
 
 test('render the email and name of each user', () => {});
