@@ -11,6 +11,9 @@ export default function UserForm({ onUserAdd }) {
       name,
       email,
     });
+
+    setEmail('');
+    setName('');
   }
 
   return (
